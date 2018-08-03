@@ -1,0 +1,87 @@
+<h1>Exam Question</h1>
+
+<div class="row">
+    <h2>Question</h2>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <div class="row">
+            <div class="col-md-12">
+                <input type="checkbox" ng-model="string" name="string" ng-true-value="expression" ng-false-value="expression" ng-change="string"> Mark
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                DURATION:
+            </div>
+            <div class="col-md-6">
+                {{ this.globalService.examMinutes }} min
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                REMAINING: 
+            </div>
+            <div class="col-md-6">
+                {{ this.globalService.examTimeRemainingString }} 
+            </div>
+            <div class="col-md-6">
+                FINISH LATER?:
+            </div>
+            <div class="col-md-6">
+                <button type="button" class="btn btn-info btn-sm p-2 m-2" data-toggle="modal" data-target="#myModal">Pause Exam</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9">
+        What is ...
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+
+    </div>
+    <div class="col-md-3">
+        <button type="button" class="btn btn-success p-2 m-2" (click)="previousQuestion()">Previous Question</button>
+    </div>
+    <div class="col-md-3">
+        <button type="button" class="btn btn-success p-2 m-2" (click)="nextQuestion()">Next Question</button>
+    </div>
+    <div class="col-md-3">
+        <button type="button" class="btn btn-success p-2 m-2" (click)="goToSummary()">Go To Summary</button>
+    </div>
+</div>
+
+<div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h3>EXAM [[ TODO: EXAM TITLE HERE ]]</h3>
+              <h4><span style="background-color: yellow">EXAM PAUSED</span></h4>
+              <h4>Duration: {{ this.globalService.examMinutes }} min</h4>
+              <h4>Time Remaining: {{ this.globalService.examTimeRemainingString }} </h4>
+            </div>
+            <div class="modal-content">
+              <div class="row">
+                <div class="col-md-2">
+      
+                </div>
+                <div class="col-md-8">
+                  <h5>PLEASE NOTE:</h5>
+                  <p>By pausing the exam, you are doing the following:</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-warning" data-dismiss="modal">RETURN to exam</button>
+              <button type="button" class="btn btn-success" (click)="saveExam()">SAVE</button>
+            </div>      
+          </div>
+        </div>
+      </div>
